@@ -1,0 +1,58 @@
+<h1 id="book">BOOK  <% %></h1>
+<div class="editor">
+    <div class="option">
+        <button class="edit" data-command="undo"><i class="fas fa-undo"></i></button>
+        <button class="edit" data-command="bold"><i class="fas fa-bold"></i></button>
+        <button class="edit" data-command="underline"><i class="fas fa-underline"></i></button>
+        <button class="edit" data-command="italic"><i class="fas fa-italic"></i></button>
+        <button class="edit" data-command="insertUnorderedList"><i class="fas fa-list-ol"></i></button>
+        <button class="edit" data-command="insertOrderedList"><i class="fas fa-list-ul"></i></button>
+        <button class="edit" data-command="subscript"><i class="fas fa-subscript"></i></button>
+        <button class="edit" data-command="superscript"><i class="fas fa-superscript"></i></button>
+        <button class="edit" data-command="justifyLeft"><i class="fas fa-align-right"></i></button>
+        <button class="edit" data-command="justifyCenter"><i class="fas fa-align-center"></i></button>
+        <button class="edit" data-command="justifyRight"><i class="fas fa-align-left"></i></button>
+        <button class="edit" data-command="insertImage"><i class="fas fa-images"></i></button>
+        <input  type="color" class="edit" data-command="forecolor" ></i>
+    </div>
+    <form action="/book" method="POST">
+        <button id="bookBut">ADD BOOK</button>
+        <textarea name="books" id="textarea0" class="textarea" contenteditable="true"></textarea>
+    </form>
+    <button id="add">Add Page</button>
+</div>
+
+<script>
+    const buttons = document.querySelectorAll('.edit')
+    const download =document.querySelector('.edit1')
+    const color =  document.querySelector('.color')
+    var count=1;
+    buttons.forEach(button =>{
+        button.addEventListener('click',()=>{
+            let event = button.dataset['command']
+            if(event === "insertImage"){
+                let url = prompt("Enter your Link Here: ","http:\/\/");
+                document.execCommand(event, false, url);
+            }
+            else if(event == "forecolor"){
+                document.execCommand(event,false,button.value)
+            }
+            else{
+            document.execCommand(event, false, null);
+            }
+        })  
+    })
+    document.getElementById('add').addEventListener('click',()=>{
+        var textarea = document.createElement('textarea')
+        textarea.id = 'textarea'+count;
+        textarea.className = 'textarea'
+        var area = document.createAttribute('contenteditable')
+        area.value = 'true'
+        var area1 = document.createAttribute('name')
+        area1.value = 'books'
+        textarea.setAttributeNode(area1)
+        textarea.setAttributeNode(area)
+        document.querySelector('form').appendChild(textarea)
+        count++
+    })
+</script>

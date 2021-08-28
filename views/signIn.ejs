@@ -1,0 +1,19 @@
+<div id="registerpage">
+    <img id="loginimg" src="/login.jpg" alt="">
+    <div id="registerpage1">
+        <h1 id="register1">Register Here</h1>
+        <%- include('messages') %>
+        <form  action="/signIn" method="POST">
+            <label class="text" for="username">USERNAME</label><br>
+            <input placeholder="Enter Username" id="username" name="username" type="text"><br>
+            <label class="text" for="email">EMAIL</label><br>
+            <input placeholder="Enter your email" type="email" name="email" id="email"><br>
+            <label class="text" for="password">PASSWORD</label><br>
+            <input placeholder="Enter password" type="password" name="password" id="password"><br>
+            <label class="text" for="confirm-password">Confirm PASSWORD</label><br>
+            <input placeholder="Confirm password" type="password" name="confirmpassword" id="confirm-password"><br>
+            <button class="userbutt" >Register</button>
+        </form>
+        <p>If u have an account..<a class="userbutt1" href="/login">login here</a></p>
+    </div>
+</div>

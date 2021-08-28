@@ -1,0 +1,12 @@
+<h1 id="book" >Books</h1>
+<!-- <a id="dashbutt" href="/dashboard">DASHBOARD</a>
+<a id="dashbutt" href="/createTeam">CreateTeam</a> -->
+<div class="books">
+    <% var count = 1 %>
+    <% books.forEach(book=>{ %> 
+        <button id="separate"><a id="a1" href="/<%= book._id %>">
+            <h2 id="h22" > book<%= count %></h2>
+        </a></button><br>
+        <% count++ %>
+    <% }) %>
+</div>
